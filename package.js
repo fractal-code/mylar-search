@@ -8,7 +8,7 @@ Package.on_use(function (api, where) {
     where = where || ['client', 'server'];
 
     api.use(['underscore', 'json', 'ejson', 'minimongo', 'templating',
-             'timing', 'basic-crypto', 'http', 'principal'], where);
+             'mylar:timing', 'mylar:basic-crypto', 'http', 'mylar:principal'], where);
   
     api.add_files(['search.js', 'crypto_server.js'], where);
 
