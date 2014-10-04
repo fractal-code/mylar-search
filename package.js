@@ -1,5 +1,7 @@
 Package.describe({
     summary: "Multi-key search over encrypted data",
+    name: "mylar:search",
+    git: "https://github.com/gliesesoftware/mylar-search.git"
 });
 
 Package.onUse(function (api) {
