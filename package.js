@@ -2,23 +2,21 @@ Package.describe({
     summary: "Multi-key search over encrypted data",
 });
 
-Package.on_use(function (api, where) {
+Package.onUse(function (api) {
     const USE_NACL = false;
-    
-    where = where || ['client', 'server'];
 
     api.use(['underscore', 'json', 'ejson', 'minimongo', 'templating',
-             'mylar:timing', 'mylar:basic-crypto', 'http', 'mylar:principal'], where);
+             'mylar:timing', 'mylar:basic-crypto', 'http', 'mylar:principal'], ['client', 'server']);
   
-    api.add_files(['search.js', 'crypto_server.js'], where);
+    api.addFiles(['search.js', 'crypto_server.js'], ['client', 'server']);
 
-//    api.add_files('crypto_plugin.html', 'client');
-    api.add_files('crypto_plugin.js', 'client');
+//    api.addFiles('crypto_plugin.html', 'client');
+    api.addFiles('crypto_plugin.js', 'client');
 
     api.export("MylarCrypto");
     api.export("MYLAR_USE_SEARCH");
         
-    if(USE_NACL){
+    if (USE_NACL) {
       // What a hack!  Extract source_root via the exception string.
       var source_root;
       var magic_string = '@@nonexistent_file@@';
@@ -43,7 +41,7 @@ Package.on_use(function (api, where) {
           }
 
           if (st.isFile()) {
-            api.add_files(df, 'client');
+            api.addfiles(df, 'client');
           }
         }
       }
