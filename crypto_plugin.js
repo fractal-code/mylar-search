@@ -53,7 +53,7 @@ setup_crypto = function(){
     nacl_embed.id = "_cryptoNACL";
     nacl_embed.width = 0;
     nacl_embed.height = 0;
-    nacl_embed.src = "/packages/search/crypto_ext/crypto_ext.nmf";
+    nacl_embed.src = "/crypto_ext/crypto_ext.nmf";
     nacl_embed.type = "application/x-nacl";
     
     nacl_div.appendChild(nacl_embed);
