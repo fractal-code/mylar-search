@@ -85,7 +85,7 @@ Meteor.Collection.prototype.search = function(pubname, wordmap, princ, filter_ar
     
 }
     
-Deps.autorun(function(){
+Tracker.autorun(function(){
     // check if subscriptions get closed properly
     var search_info = Session.get("_search_info");
     
