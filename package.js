@@ -8,8 +8,8 @@ Package.describe({
 Package.onUse(function (api) {
     const USE_NACL = false;
 
-    api.use(['underscore', 'json', 'templating', 'tracker', 'mylar:timing',
-             'mylar:basic-crypto', 'http', 'mylar:principal'], ['client', 'server']);
+    api.use(['underscore', 'json', 'templating', 'tracker', 'session', 'mongo', 'http',
+             'mylar:timing', 'mylar:basic-crypto', 'mylar:principal'], ['client', 'server']);
   
     api.addFiles(['search.js', 'crypto_server.js'], ['client', 'server']);
 
