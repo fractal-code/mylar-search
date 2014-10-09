@@ -36,7 +36,7 @@ if (Meteor.isClient) {
 
     
      
-Meteor.Collection.prototype.search = function(pubname, wordmap, princ, filter_args, callback) {
+Mongo.Collection.prototype.search = function(pubname, wordmap, princ, filter_args, callback) {
     var self = this;
 
     /* First check if this principal has any
@@ -130,7 +130,7 @@ function getProj(doc, proj, token) {
     return res;
 }
 
-Meteor.Collection.prototype.publish_search_filter = function(pubname, filter, proj) {
+Mongo.Collection.prototype.publish_search_filter = function(pubname, filter, proj) {
 	
     var self_col = this;
 
@@ -260,7 +260,7 @@ Meteor.Collection.prototype.publish_search_filter = function(pubname, filter, pr
 
 
 
-Meteor.Collection.prototype.publish_single_search_filter = function(pubname, filter, proj) {
+Mongo.Collection.prototype.publish_single_search_filter = function(pubname, filter, proj) {
 	
     var self_col = this;
 
@@ -367,7 +367,7 @@ Meteor.Collection.prototype.publish_single_search_filter = function(pubname, fil
 if (Meteor.isClient) {
        
     
-Meteor.Collection.prototype.single_search = function(pubname, wordmap, princ, filter_args, callback) {
+Mongo.Collection.prototype.single_search = function(pubname, wordmap, princ, filter_args, callback) {
     var self = this;
     
     var mapkeys = _.keys(wordmap);
