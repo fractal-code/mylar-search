@@ -6,14 +6,13 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
-    const USE_NACL = false;
+    const USE_NACL = true;
 
-    api.use(['underscore', 'json', 'templating', 'tracker', 'session', 'mongo', 'http',
+    api.use(['underscore', 'json', 'tracker', 'session', 'mongo', 'http',
              'mylar:timing', 'mylar:basic-crypto', 'mylar:principal'], ['client', 'server']);
   
     api.addFiles(['search.js', 'crypto_server.js'], ['client', 'server']);
 
-//    api.addFiles('crypto_plugin.html', 'client');
     api.addFiles('crypto_plugin.js', 'client');
 
     api.export("MylarCrypto");
