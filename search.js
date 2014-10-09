@@ -21,7 +21,6 @@
 
 MYLAR_USE_SEARCH = true;
 
-
 search_cb = undefined;
 search_collec = undefined;
 

@@ -1,11 +1,38 @@
 /* Interface to crypto server. Synchronous. */
 
+//replaces NaCl or crypto_fire with crypto_server; for testing
+USE_CRYPTO_SERVER = true;
+
 crypto_server = undefined;
 var base_url = 'http://localhost:8082/';
 
 if (Meteor.isServer) { // server is synchronous
+    if (USE_CRYPTO_SERVER) {
+        var spawn = Npm.require('child_process').spawn,
+            process = spawn('sh', ['crypto_server.sh'], {cwd: 'assets/packages/mylar_search'}),
+            closeHandler = function (code, signal) {
+            	if (code !== 0) {
+            		console.log('[crypto server] exited with code ' + code + ' signal ' + signal);
+            	}
+            },
+            errorHandler = function (error) {
+                console.log('[crypto server] ' + error);
+            },
+            outputHandler = function (data) {
+                var lines = data.toString().split(/\r?\n/).slice(0, -1);
+                _.map(lines, function (line) {
+                    console.log('[crypto server] ' + line);
+                });
+            };
+
+        process.on('close', closeHandler);
+        process.on('error', errorHandler);
+        process.stdout.on('data', outputHandler);
+        process.stderr.on('data', outputHandler);
+    }
+
     crypto_server = (function () {
-	
+
 	// synchronous send request
 	function send_request(url_extension) {
 	    //console.log("SENDING " + base_url + url_extension);
