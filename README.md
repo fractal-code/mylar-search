@@ -1,6 +1,8 @@
 # mylar:search
 
-Multi-key search over encrypted data.
+The Mylar platform features a multi-key search system that enables keyword search over data encrypted with different keys. This is crucial for enabling collaboration between users and other traditional functionality in web applications over data encrypted with different keys. 
+
+(More information about the system is available [here](http://eprint.iacr.org/2013/508.pdf)).
 
 This meteor packages extends the core functionality of [Mylar](https://github.com/gliesesoftware/mylar).
 
