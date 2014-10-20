@@ -1,7 +1,7 @@
 Package.describe({
     summary: "Multi-key search over encrypted data",
     name: "mylar:search",
-    version: '0.1.0',
+    version: '0.1.1',
     git: "https://github.com/gliesesoftware/mylar-search.git"
 });
 
