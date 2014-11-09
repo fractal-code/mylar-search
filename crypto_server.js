@@ -1,12 +1,13 @@
 /* Interface to crypto server. Synchronous. */
 
-//replaces NaCl or crypto_fire with crypto_server; for testing
+//replaces NaCl or crypto_fire with crypto_server;
 USE_CRYPTO_SERVER = true;
 
 crypto_server = undefined;
-var base_url = 'http://localhost:8082/';
 
 if (Meteor.isServer) { // server is synchronous
+	var base_url = 'http://localhost:8082/';
+
     if (USE_CRYPTO_SERVER) {
         var spawn = Npm.require('child_process').spawn,
             process = spawn('sh', ['crypto_server.sh'], {cwd: 'assets/packages/mylar_search'}),
@@ -41,6 +42,7 @@ if (Meteor.isServer) { // server is synchronous
 		console.log("crypto server could not service request: " + res.headers + " " + res.content);
 		return null;
 	    }
+
 	    return res.content;
 	}
 	
@@ -107,11 +109,12 @@ if (Meteor.isServer) { // server is synchronous
 }
 
 if (Meteor.isClient) { // client must be asynchronous
+	var base_url = 'http://' + window.location.hostname + ':8082/';
+
     crypto_server = (function () {
 	
 	// calls cb on the content of the response
 	function send_request(url_extension, cb) {
-
 	    Meteor.http.call("GET", base_url+url_extension, {}, function(error, res){
 		if (!error && res && res.statusCode == 200) {
 		    cb(res.content);
