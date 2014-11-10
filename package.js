@@ -9,7 +9,7 @@ Package.onUse(function (api) {
     api.versionsFrom('METEOR@1.0');
 
     api.use(['underscore', 'json', 'tracker', 'session', 'mongo', 'http',
-             'mylar:timing@0.1.0', 'mylar:basic-crypto@0.1.0', 'mylar:principal@0.1.3'], ['client', 'server']);
+             'mylar:timing@0.1.0', 'mylar:basic-crypto@0.1.0', 'mylar:principal@0.2.0'], ['client', 'server']);
 
     api.addFiles(['crypto_server.sh', 'crypto_server.tar.gz', 'crypto_mk.tar.gz'], 'server');
 
