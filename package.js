@@ -6,7 +6,7 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
-    api.versionsFrom('METEOR@0.9.1');
+    api.versionsFrom('METEOR@1.0');
 
     api.use(['underscore', 'json', 'tracker', 'session', 'mongo', 'http',
              'mylar:timing@0.1.0', 'mylar:basic-crypto@0.1.0', 'mylar:principal@0.1.3'], ['client', 'server']);
